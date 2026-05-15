@@ -209,6 +209,25 @@
         
         /* Smooth Scrolling */
         html { scroll-behavior: smooth; }
+
+        /* Download Button Hover */
+        .download-btn {
+            background: var(--success); 
+            color: white; 
+            padding: 18px 40px; 
+            text-decoration: none; 
+            font-size: 20px; 
+            font-weight: bold; 
+            border-radius: 50px; 
+            display: inline-block; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2); 
+            transition: all 0.3s;
+        }
+        .download-btn:hover {
+            background: #2E7D32;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
     </style>
 </head>
 <body>
@@ -225,6 +244,7 @@
             <li><a href="#tien-ich-word">📄 3. Tiện Ích Word</a></li>
             <li><a href="#cat-pdf">📑 4. Cắt PDF</a></li>
             <li><a href="#ket-sat">🔐 5. Két Sắt Mật Khẩu</a></li>
+            <li><a href="#tai-tool">📥 6. Link Tải Tool</a></li>
         </ul>
     </div>
 
@@ -234,7 +254,7 @@
         <!-- Mục: Tổng quan -->
         <div id="tong-quan" class="section">
             <h1>🌟 TỔNG QUAN PHẦN MỀM</h1>
-            <p><strong>Teacher Tool Pro</strong> là bộ công cụ "tất cả trong một" được thiết kế riêng dành cho giáo viên, giúp tự động hóa hoàn toàn các công việc biên soạn đề thi, định dạng văn bản chuẩn, và tạo câu hỏi bằng Trí tuệ nhân tạo (AI).</p>
+            <p><strong>Teacher Tool Pro (Bản V85 Automation Master)</strong> là bộ công cụ "tất cả trong một" được thiết kế riêng dành cho giáo viên, giúp tự động hóa hoàn toàn các công việc biên soạn đề thi, định dạng văn bản chuẩn, và tạo câu hỏi bằng Trí tuệ nhân tạo (AI).</p>
             <div class="callout success">
                 <strong>💡 Điểm nổi bật ở phiên bản này:</strong>
                 <ul>
@@ -313,7 +333,7 @@ d. CPU là bộ nhớ trong.
                 <ul>
                     <li><strong>Giãn dòng:</strong> Chọn <code>1.0</code></li>
                     <li><strong>Trước/Sau:</strong> Nhập <code>0</code></li>
-                    <li>Đánh dấu tích vào ô <span style="color:green; font-weight:bold;">Dàn đáp án thành 2 cột</span></li>
+                    <li>Đánh dấu tích vào ô <span style="color:green; font-weight:bold;">Dàn đáp án 2 cột & Ép sát dòng</span></li>
                 </ul>
             </div>
 
@@ -324,7 +344,7 @@ d. CPU là bộ nhớ trong.
                     <th>Tác dụng thần kỳ</th>
                 </tr>
                 <tr>
-                    <td><strong>Dàn đáp án thành 2 cột </strong></td>
+                    <td><strong>Dàn đáp án 2 cột & Ép sát dòng</strong></td>
                     <td>Phần mềm sẽ đập bỏ mọi bảng ẩn, dùng phím <em>Tab</em> để dàn 4 đáp án A B C D thành 2 cột đều tăm tắp. Nó tắt mọi chế độ tự giãn dòng của Word (như Snap to Grid, Widow/Orphan) để chữ dính sát vào nhau tuyệt đối.</td>
                 </tr>
                 <tr>
@@ -333,7 +353,11 @@ d. CPU là bộ nhớ trong.
                 </tr>
                 <tr>
                     <td><strong style="color:#E65100;">Dồn câu Đúng/Sai về cuối & Đánh lại STT</strong></td>
-                    <td>Tính năng tự động hóa đỉnh cao: Nếu các câu trắc nghiệm và câu Đúng/Sai đang bị trộn lẫn lộn, máy sẽ tự động bốc các câu Đúng/Sai xuống cuối file, sau đó <strong>đánh lại toàn bộ số thứ tự từ Câu 1</strong> mà không làm xước một chữ in đậm/in nghiêng nào.</td>
+                    <td>Tính năng tự động hóa đỉnh cao: Máy sẽ tự động bốc các câu Đúng/Sai xuống cuối file, sau đó <strong>đánh lại toàn bộ số thứ tự từ Câu 1</strong> mà không làm xước một chữ in đậm/in nghiêng nào.</td>
+                </tr>
+                <tr>
+                    <td><strong style="color:red;">Xóa dòng Đáp án (Tạo đề chưa giải cho học sinh)</strong></td>
+                    <td>Phần mềm sẽ lùng sục và xóa sạch mọi chữ bắt đầu bằng "Đáp án", "ĐA" hay "KQ". Trả lại một đề thi trắng tinh khôi hoàn toàn tự động để gửi cho học sinh làm.</td>
                 </tr>
                 <tr>
                     <td><strong>Tạo Mục Lục</strong></td>
@@ -350,7 +374,7 @@ d. CPU là bộ nhớ trong.
                 <li>Bấm <strong>📂 Chọn PDF</strong>. Trình xem trước sẽ hiển thị văn bản ngay bên phải.</li>
                 <li>Trong ô <em>Trang cần cắt</em>, nhập các trang muốn giữ lại theo cú pháp dấu phẩy và dấu gạch ngang.<br> 
                 👉 <em>Ví dụ:</em> Gõ <code>1, 3-5, 8</code> máy sẽ cắt ra trang 1, 3, 4, 5 và trang 8.</li>
-                <li>Bấm <strong>✂ Cắt File</strong>. Phần mềm sẽ xuất ra file PDF mới nhẹ hơn rất nhiều, cực kỳ phù hợp để tải lên chức năng "AI Sinh Đề" hoặc gửi qua Zalo cho học sinh.</li>
+                <li>Bấm <strong>✂ Cắt File</strong>. Phần mềm sẽ xuất ra file PDF mới nhẹ hơn rất nhiều.</li>
             </ul>
         </div>
 
@@ -376,8 +400,30 @@ d. CPU là bộ nhớ trong.
                 <li>Tạo một <strong>Mật khẩu mở két</strong> (Master Password). Hãy nhớ kỹ mật khẩu này vì nó dùng để giải mã mọi mật khẩu khác.</li>
                 <li>Trong két sắt, bấm <span class="badge green">➕ Thêm Mới</span> để lưu tài khoản. Mật khẩu sẽ bị ẩn bằng dấu sao <code>***</code>.</li>
                 <li>Bấm nút con mắt <span class="badge orange">👁</span> để xem mật khẩu, hoặc nút cây bút <span class="badge primary">✏️</span> để chỉnh sửa.</li>
-                <li>Bấm nút <span class="badge primary">☁️ Sao lưu Online</span> để phần mềm ngay lập tức mã hóa toàn bộ cơ sở dữ liệu <code>data.db</code> và gửi vào Email của thầy/cô, chống mất dữ liệu khi hỏng ổ cứng.</li>
+                <li>Bấm nút <span class="badge primary">☁️ Sao lưu Online</span> để phần mềm mã hóa toàn bộ CSDL và gửi vào Email của thầy/cô.</li>
             </ul>
+        </div>
+
+        <!-- Mục: Tải Tool -->
+        <div id="tai-tool" class="section">
+            <h1>📥 6. TẢI VÀ CẬP NHẬT PHẦN MỀM</h1>
+            <p>Phần mềm <strong>Teacher Tool Pro</strong> được cập nhật liên tục để nâng cao trải nghiệm. Thầy/cô vui lòng bấm vào nút bên dưới để tải về phiên bản mới nhất:</p>
+            
+            <div style="text-align: center; margin: 40px 0;">
+                <!-- CHÚ Ý: BẠN HÃY THAY LINK GOOGLE DRIVE/ONEDRIVE CỦA BẠN VÀO CHỖ DẤU # DƯỚI ĐÂY -->
+                <a href="https://drive.google.com/file/d/1sX7Re5c1XN5Ta24lhz9u9AvjStE1PPIB/view?usp=sharing" class="download-btn" target="_blank">
+                    🚀 TẢI PHẦN MỀM BẢN MỚI NHẤT TẠI ĐÂY
+                </a>
+            </div>
+
+            <div class="callout info">
+                <strong>💡 Lưu ý cực kỳ quan trọng khi cài đặt:</strong>
+                <ul>
+                    <li>Khi tải file nén <code>.zip</code> hoặc <code>.rar</code> về, xin hãy <strong>Giải nén ra ổ D:</strong> hoặc để ở màn hình <strong>Desktop</strong>.</li>
+                    <li><strong>TUYỆT ĐỐI KHÔNG</strong> chép phần mềm vào ổ đĩa hệ thống <code>C:\Program Files</code>. Vì Windows bảo mật rất gắt, sẽ chặn không cho phần mềm ghi đè file lịch sử hoặc tạo cơ sở dữ liệu (sẽ bị lỗi văng phần mềm).</li>
+                    <li>Nếu mở phần mềm trên một máy tính Windows đời cũ mà không hiện lên gì cả, hãy cài đặt <a href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170" target="_blank" style="color:var(--primary); font-weight:bold;">Visual C++ Redistributable</a> để hỗ trợ bộ thư viện AI và PDF.</li>
+                </ul>
+            </div>
         </div>
 
     </div>
