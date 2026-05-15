@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng Dẫn Sử Dụng - Teacher Tool Pro</title>
+    <style>
+        :root {
+            --primary: #1E88E5;
+            --primary-dark: #1565C0;
+            --secondary: #F57C00;
+            --success: #43A047;
+            --dark: #263238;
+            --bg-color: #F0F2F5;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --sidebar-width: 280px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            margin: 0;
+            background-color: var(--bg-color);
+            display: flex;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--dark);
+            color: #fff;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        .sidebar-header {
+            padding: 25px 20px;
+            background: #1b2428;
+            text-align: center;
+            border-bottom: 1px solid #37474F;
+        }
+
+        .sidebar-header h2 {
+            margin: 0;
+            font-size: 22px;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-nav li a {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            color: #B0BEC5;
+            text-decoration: none;
+            font-size: 16px;
+            border-bottom: 1px solid #37474F;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-nav li a:hover {
+            background: #37474F;
+            color: #fff;
+            border-left: 4px solid var(--primary);
+        }
+
+        /* Content Styles */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 40px;
+            width: calc(100% - var(--sidebar-width));
+            box-sizing: border-box;
+        }
+
+        .section {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: var(--dark);
+            font-size: 32px;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 15px;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 24px;
+            margin-top: 35px;
+            display: flex;
+            align-items: center;
+        }
+
+        h3 {
+            color: var(--secondary);
+            font-size: 18px;
+            margin-top: 25px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        /* Callouts */
+        .callout {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .callout.info {
+            background: #E3F2FD;
+            border-left: 5px solid var(--primary);
+        }
+
+        .callout.warning {
+            background: #FFF3E0;
+            border-left: 5px solid var(--secondary);
+        }
+
+        .callout.success {
+            background: #E8F5E9;
+            border-left: 5px solid var(--success);
+        }
+
+        .callout strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        /* Code & Pre */
+        code {
+            background: #F5F5F5;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            color: #C62828;
+            font-size: 15px;
+        }
+
+        pre {
+            background: #263238;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Consolas', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            background: var(--primary);
+        }
+
+        .badge.green { background: var(--success); }
+        .badge.orange { background: var(--secondary); }
+        .badge.gray { background: #757575; }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        table th, table td {
+            border: 1px solid #E0E0E0;
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #F5F5F5;
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+        
+        /* Smooth Scrolling */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>TEACHER TOOL PRO</h2>
+        </div>
+        <ul class="sidebar-nav">
+            <li><a href="#tong-quan">🌟 Tổng quan</a></li>
+            <li><a href="#soan-de">📝 1. Soạn Đề QuizLAN</a></li>
+            <li><a href="#ai-sinh-de">🤖 2. AI Sinh Đề</a></li>
+            <li><a href="#tien-ich-word">📄 3. Tiện Ích Word</a></li>
+            <li><a href="#cat-pdf">📑 4. Cắt PDF</a></li>
+            <li><a href="#ket-sat">🔐 5. Két Sắt Mật Khẩu</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        
+        <!-- Mục: Tổng quan -->
+        <div id="tong-quan" class="section">
+            <h1>🌟 TỔNG QUAN PHẦN MỀM</h1>
+            <p><strong>Teacher Tool Pro</strong> là bộ công cụ "tất cả trong một" được thiết kế riêng dành cho giáo viên, giúp tự động hóa hoàn toàn các công việc biên soạn đề thi, định dạng văn bản chuẩn, và tạo câu hỏi bằng Trí tuệ nhân tạo (AI).</p>
+            <div class="callout success">
+                <strong>💡 Điểm nổi bật ở phiên bản này:</strong>
+                <ul>
+                    <li>Tự động hóa tuyệt đối khâu định dạng Word: Dàn đáp án 2 cột ép khít dòng, tiết kiệm giấy 100%.</li>
+                    <li>Mắt thần AI phân loại: Tự động gom câu hỏi Đúng/Sai rải rác dồn về cuối đề và đánh lại số thứ tự.</li>
+                    <li>Trộn đề trực quan ngay trên màn hình. Đẩy trực tiếp đề thi lên hệ thống web QuizLAN.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Mục: Soạn Đề Quiz -->
+        <div id="soan-de" class="section">
+            <h1>📝 1. SOẠN ĐỀ QUIZLAN</h1>
+            <p>Tab này giúp thầy/cô biến một file Word thô thành các bộ đề thi chuẩn, trộn mã đề và nạp trực tiếp lên hệ thống.</p>
+            
+            <h3>Quy tắc gõ đề trong file Word:</h3>
+            <p>Phần mềm cực kỳ thông minh nhưng cũng cần thầy/cô tuân thủ quy tắc gõ cơ bản sau:</p>
+            <pre>
+Câu 1: Thủ đô của Việt Nam là gì?
+A. TP. Hồ Chí Minh
+B. Đà Nẵng
+C. Cần Thơ
+D. Hà Nội
+Đáp án: D
+
+Câu 2: Các nhận định sau đây đúng hay sai về máy tính:
+a. Bàn phím là thiết bị ra.
+b. Chuột là thiết bị vào.
+c. Màn hình là thiết bị ra.
+d. CPU là bộ nhớ trong.
+Đáp án: SDDS
+            </pre>
+            
+            <h3>Các tính năng chính:</h3>
+            <ul>
+                <li><span class="badge">📂 Chọn Word</span>: Tải file đề gốc vào phần mềm.</li>
+                <li><span class="badge green">⚡ Phân Tích</span>: Bấm nút này để phần mềm nhận diện số lượng câu Trắc nghiệm và câu Đúng/Sai.</li>
+                <li><span class="badge orange">🔀 Trộn Đề</span>: Trộn ngẫu nhiên thứ tự các câu hỏi và thứ tự các đáp án A B C D (hoặc các ý a, b, c, d của câu Đúng/Sai) hiển thị ngay trên màn hình để kiểm tra.</li>
+                <li><span class="badge gray">🚀 Trộn ZIP</span>: Nhập số lượng đề cần trộn (VD: 4 đề). Phần mềm sẽ xuất ra một file nén <code>.zip</code> chứa 4 file Word đề đã trộn và 4 file đáp án kèm theo.</li>
+                <li><span class="badge orange">☁️ Đẩy Lên QuizLAN</span>: Giao tiếp trực tiếp với cơ sở dữ liệu <code>quizlan.db</code>. Thầy/cô chỉ cần nhập Tiêu đề, Mã truy cập, Thời gian. Toàn bộ đề sẽ được đẩy thẳng lên web cho học sinh làm bài ngay lập tức.</li>
+            </ul>
+        </div>
+
+        <!-- Mục: AI Sinh Đề -->
+        <div id="ai-sinh-de" class="section">
+            <h1>🤖 2. TRỢ LÝ AI SINH ĐỀ</h1>
+            <p>Công cụ này sử dụng sức mạnh của Google Gemini để đọc hiểu sách giáo khoa, tài liệu và tự động đẻ ra câu hỏi trắc nghiệm/đúng sai theo ý muốn.</p>
+            
+            <div class="callout warning">
+                <strong>🔑 Hướng dẫn lấy Gemini API Key (Bắt buộc):</strong>
+                <p>1. Truy cập vào trang <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a> bằng tài khoản Gmail của thầy/cô.<br>
+                2. Bấm nút <strong>Create API Key</strong>.<br>
+                3. Copy đoạn mã đó và dán vào ô <em>"Gemini API Key"</em> trong phần mềm.</p>
+            </div>
+
+            <h3>Quy trình sinh đề bằng AI:</h3>
+            <ol>
+                <li><strong>Tạo phiên làm việc:</strong> Bấm <span class="badge">➕ Tạo Mới</span>, nhập tên Lớp (VD: Khối 10 Bài 1) và bấm <span class="badge green">💾 Lưu</span>. Tính năng này giúp thầy/cô xem lại lịch sử các câu hỏi đã tạo từ tháng trước.</li>
+                <li><strong>Chọn File gốc:</strong> Bấm <strong>📂 Chọn Nhiều File</strong>. Có thể chọn PDF, Word (docx) hoặc thậm chí Ảnh chụp sách giáo khoa. Thầy/cô có thể nhập cụ thể "Trang cần đọc" để AI tập trung.</li>
+                <li><strong>Nhập Prompt (Yêu cầu):</strong> Sửa yêu cầu mặc định theo ý muốn. Khuyến nghị giữ nguyên câu lệnh <em>"Đối với câu Đúng/Sai BẮT BUỘC phải viết câu dẫn"</em> để AI ngoan ngoãn tuân thủ.</li>
+                <li><strong>Bắt đầu:</strong> Bấm nút <span class="badge orange">⚡ AI BẮT ĐẦU TẠO LƯỢT ĐỀ ĐẦU TIÊN</span>. AI sẽ đọc tài liệu và trả về kết quả ở khung bên dưới.</li>
+                <li><strong>Tạo thêm:</strong> Nếu thấy chưa đủ, bấm <span class="badge orange">🔄 Sinh Thêm Câu Mới</span>. AI sẽ tiếp tục đẻ ra các câu hỏi KHÔNG TRÙNG LẶP với những câu đã tạo ở trên.</li>
+            </ol>
+            
+            <p>Sau khi sinh xong, thầy/cô có thể bấm <strong>👉 Đẩy Sang Bảng Soạn Đề</strong> để trộn hoặc đẩy lên Web, hoặc bấm <strong>💾 Tải Về Word Ngay</strong> để in cho học sinh.</p>
+        </div>
+
+        <!-- Mục: Tiện Ích Word -->
+        <div id="tien-ich-word" class="section">
+            <h1>📄 3. TIỆN ÍCH WORD (SIÊU CÔNG CỤ ĐỊNH DẠNG)</h1>
+            <p>Đây là trái tim của việc tiết kiệm giấy và làm đẹp văn bản. Các tính năng này đã được "vượt rào" cấu trúc của Microsoft Word để can thiệp cực sâu vào tệp tin.</p>
+
+            <div class="callout info">
+                <strong>📝 Cách cấu hình để Ép Sát Dòng (Tiết kiệm giấy 100%):</strong>
+                <p>Để đề thi khít rịt, gọn gàng, xin hãy chú ý cấu hình các thông số sau trên giao diện:</p>
+                <ul>
+                    <li><strong>Giãn dòng:</strong> Chọn <code>1.0</code></li>
+                    <li><strong>Trước/Sau:</strong> Nhập <code>0</code></li>
+                    <li>Đánh dấu tích vào ô <span style="color:green; font-weight:bold;">Dàn đáp án thành 2 cột</span></li>
+                </ul>
+            </div>
+
+            <h3>Giải thích các tùy chọn đặc biệt:</h3>
+            <table>
+                <tr>
+                    <th style="width: 25%;">Tên tính năng</th>
+                    <th>Tác dụng thần kỳ</th>
+                </tr>
+                <tr>
+                    <td><strong>Dàn đáp án thành 2 cột </strong></td>
+                    <td>Phần mềm sẽ đập bỏ mọi bảng ẩn, dùng phím <em>Tab</em> để dàn 4 đáp án A B C D thành 2 cột đều tăm tắp. Nó tắt mọi chế độ tự giãn dòng của Word (như Snap to Grid, Widow/Orphan) để chữ dính sát vào nhau tuyệt đối.</td>
+                </tr>
+                <tr>
+                    <td><strong>In đậm toàn bộ Câu hỏi</strong></td>
+                    <td>Dù đề thi của bạn có hàng trăm câu, phần mềm sẽ lùng sục mọi ngóc ngách và in đậm toàn bộ các chữ bắt đầu bằng <em>"Câu 1:"</em>, <em>"Câu 2:"</em>...</td>
+                </tr>
+                <tr>
+                    <td><strong style="color:#E65100;">Dồn câu Đúng/Sai về cuối & Đánh lại STT</strong></td>
+                    <td>Tính năng tự động hóa đỉnh cao: Nếu các câu trắc nghiệm và câu Đúng/Sai đang bị trộn lẫn lộn, máy sẽ tự động bốc các câu Đúng/Sai xuống cuối file, sau đó <strong>đánh lại toàn bộ số thứ tự từ Câu 1</strong> mà không làm xước một chữ in đậm/in nghiêng nào.</td>
+                </tr>
+                <tr>
+                    <td><strong>Tạo Mục Lục</strong></td>
+                    <td>Tự động sinh ra trường Mục lục tự động ở đầu trang. (Lưu ý: Thầy/cô cần mở file Word lên, ấn Ctrl+A và ấn F9 để Word tải số trang).</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Mục: Cắt PDF -->
+        <div id="cat-pdf" class="section">
+            <h1>📑 4. CẮT PDF VÀ ÉP DUNG LƯỢNG</h1>
+            <p>Công cụ chuyên dụng để trích xuất một phần nội dung từ các file SGK hoặc đề thi PDF dung lượng lớn.</p>
+            <ul>
+                <li>Bấm <strong>📂 Chọn PDF</strong>. Trình xem trước sẽ hiển thị văn bản ngay bên phải.</li>
+                <li>Trong ô <em>Trang cần cắt</em>, nhập các trang muốn giữ lại theo cú pháp dấu phẩy và dấu gạch ngang.<br> 
+                👉 <em>Ví dụ:</em> Gõ <code>1, 3-5, 8</code> máy sẽ cắt ra trang 1, 3, 4, 5 và trang 8.</li>
+                <li>Bấm <strong>✂ Cắt File</strong>. Phần mềm sẽ xuất ra file PDF mới nhẹ hơn rất nhiều, cực kỳ phù hợp để tải lên chức năng "AI Sinh Đề" hoặc gửi qua Zalo cho học sinh.</li>
+            </ul>
+        </div>
+
+        <!-- Mục: Két Sắt -->
+        <div id="ket-sat" class="section">
+            <h1>🔐 5. KÉT SẮT MẬT KHẨU</h1>
+            <p>Bảo vệ toàn bộ tài khoản các website quản lý điểm, web trường học của thầy/cô bằng chuẩn mã hóa cấp quân sự AES-256. Dữ liệu nằm hoàn toàn trên máy tính của thầy/cô, không ai có thể đọc được.</p>
+            
+            <div class="callout warning">
+                <strong>Thiết lập sao lưu với Mật khẩu ứng dụng Gmail:</strong>
+                <p>Để đảm bảo không bao giờ mất dữ liệu ngay cả khi cài lại máy, thầy/cô cần thiết lập Email để nhận file Backup tự động.</p>
+                <ol>
+                    <li>Truy cập <a href="https://myaccount.google.com/security" target="_blank">Bảo mật tài khoản Google</a>.</li>
+                    <li>Bật "Xác minh 2 bước".</li>
+                    <li>Tìm mục "Mật khẩu ứng dụng" (App Passwords).</li>
+                    <li>Tạo một mật khẩu ứng dụng tên "ToolYN", Google sẽ cho 1 mã 16 chữ cái (VD: <em>abcd efgh ijkl mnop</em>).</li>
+                    <li>Dán mã đó cùng email của thầy/cô vào phần mềm.</li>
+                </ol>
+            </div>
+
+            <h3>Sử dụng Két sắt:</h3>
+            <ul>
+                <li>Tạo một <strong>Mật khẩu mở két</strong> (Master Password). Hãy nhớ kỹ mật khẩu này vì nó dùng để giải mã mọi mật khẩu khác.</li>
+                <li>Trong két sắt, bấm <span class="badge green">➕ Thêm Mới</span> để lưu tài khoản. Mật khẩu sẽ bị ẩn bằng dấu sao <code>***</code>.</li>
+                <li>Bấm nút con mắt <span class="badge orange">👁</span> để xem mật khẩu, hoặc nút cây bút <span class="badge primary">✏️</span> để chỉnh sửa.</li>
+                <li>Bấm nút <span class="badge primary">☁️ Sao lưu Online</span> để phần mềm ngay lập tức mã hóa toàn bộ cơ sở dữ liệu <code>data.db</code> và gửi vào Email của thầy/cô, chống mất dữ liệu khi hỏng ổ cứng.</li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>
